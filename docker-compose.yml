@@ -12,7 +12,7 @@ services:
       - SERVICES=s3,dynamodb,lambda,apigateway,iam,logs,cloudwatch
       - AWS_DEFAULT_REGION=us-east-1
       - LAMBDA_EXECUTOR=docker
-      - LAMBDA_DOCKER_NETWORK=b_localstack-net
+      - LAMBDA_DOCKER_NETWORK=serverless-image-api_localstack-net
       - LOCALSTACK_HOST=localstack:4566
       - DOCKER_HOST=unix:///var/run/docker.sock
       - PERSISTENCE=1

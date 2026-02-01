@@ -10,7 +10,7 @@ A scalable, serverless image management API built with **AWS Lambda, API Gateway
 - **Scalable Storage**: Leverages **Amazon S3** for durable object storage and **Amazon DynamoDB** for low-latency metadata access.
 - **Binary Image Support**: Correctly handles binary payloads (uploads/downloads) through API Gateway.
 - **Secure Configuration**: Follows security best practices using environment variables for credentials.
-- **Infrastructure as Code**: Includes Python scripts (`setup_full_stack.py`) to programmatically deploy and configure all AWS resources.
+- **Infrastructure as Code**: Includes Python scripts (`deploy_aws_services.py`) to programmatically deploy and configure all AWS resources.
 
 ---
 
@@ -28,7 +28,7 @@ A scalable, serverless image management API built with **AWS Lambda, API Gateway
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/ashwinberyl/serverless-image-api.git
 
 # Create a virtual environment
 python -m venv venv
@@ -81,7 +81,7 @@ Run the setup script. This script acts as your "CloudFormation" deployer. It:
 5.  Configures API Gateway (Routes, Integrations, Binary Support).
 
 ```bash
-python scripts/setup_full_stack.py
+python scripts/deploy_aws_services.py
 ```
 
 **Output:**
@@ -135,7 +135,7 @@ curl -X DELETE "http://localhost:4566/restapis/<api_id>/dev/_user_request_/image
 ├── requirements.txt         # Python libs (boto3, requests, etc.)
 ├── .env                     # App secrets (Not committed to git)
 ├── scripts/
-│   └── setup_full_stack.py  # MAIN DEPLOY SCRIPT: Deploys all AWS resources
+│   └── deploy_aws_services.py  # MAIN DEPLOY SCRIPT: Deploys all AWS resources
 ├── src/
 │   ├── handlers/            # Lambda Functions (Upload, Get, List, Delete)
 │   └── utils/               # Shared logic (AWS Clients, Response helpers)
